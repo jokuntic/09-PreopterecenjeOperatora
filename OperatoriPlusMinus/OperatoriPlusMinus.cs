@@ -35,15 +35,24 @@ namespace Vsite.CSharp
 
         public static KompleksniBroj operator +(KompleksniBroj br1, KompleksniBroj br2)
         {
-            // TODO: implementirati binarni operator + (za zbrajanje dva kompleksna broja) i provjeriti ispis pri izvođenju programa
+            //  implementirati binarni operator + (za zbrajanje dva kompleksna broja) i provjeriti ispis pri izvođenju programa
+            return new KompleksniBroj(br1.RealniDio + br2.RealniDio, br1.ImaginarniDio + br2.ImaginarniDio);
             throw new NotImplementedException();
         }
 
-        // TODO: Implementirati binarni operator - (za oduzimanje dva kompleksna broja)
-        
-        // TODO: Implementirati preopterećeni unarni operator - (za promjenu predznaka)
-
-        // TODO: Otkomentirati naredbu koja ga poziva u Main te provjeriti ispis pri izvođenju programa
+        //  Implementirati binarni operator - (za oduzimanje dva kompleksna broja)
+        public static KompleksniBroj operator -(KompleksniBroj br1, KompleksniBroj br2)
+        {
+            return new KompleksniBroj(br1.RealniDio - br2.RealniDio, br1.ImaginarniDio - br2.ImaginarniDio);
+            
+        }
+        //  Implementirati preopterećeni unarni operator - (za promjenu predznaka)
+        public static KompleksniBroj operator -(KompleksniBroj br1)
+        {
+            return new KompleksniBroj(-br1.RealniDio,-br1.ImaginarniDio);
+            
+        }
+        //  Otkomentirati naredbu koja ga poziva u Main te provjeriti ispis pri izvođenju programa
 
     }
 
@@ -58,11 +67,11 @@ namespace Vsite.CSharp
             Console.WriteLine("({0}) + ({1}) = {2}", kb1, kb2, zbroj);
 
             // Naredba koja poziva binarni operator -
-            //KompleksniBroj razlika = kb2 - kb1;
-            //Console.WriteLine("({0}) + ({1}) = {2}", kb1, kb2, razlika);
+            KompleksniBroj razlika = kb2 - kb1;
+            Console.WriteLine("({0}) - ({1}) = {2}", kb2, kb1, razlika);
 
             // Naredba koja poziva unarni operator -
-            //Console.WriteLine("-[({0}) + ({1})] = {2}", kb1, kb2, -(zbroj));
+            Console.WriteLine("-[({0}) + ({1})] = {2}", kb1, kb2, -(zbroj));
 
             Console.WriteLine("GOTOVO!!!");
             Console.ReadKey();
